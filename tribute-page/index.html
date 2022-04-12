@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Bond Tribue Page - FreeCodeCamp</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+    <header class="center-text">James Bond Tribute</header>
+
+    <nav id="nav-main">
+        <ul class="clear-anchor-style">
+            <li><a href="#actors-data-list">Actors</a></li>
+            <li><a href="">Nav 1</a></li>
+            <li><a href="">Nav 1</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <section id="title-container">
+            <h1 id="title">Bond. James Bond.</h1>
+            <p class="center-text">License to kill</p>
+        </section>
+
+        <figure id="img-div">
+            <img id="image" src="https://pbs.twimg.com/media/DOlfAo0WsAA6XDI.jpg" alt="Every film actor who has portrayed James Bond">
+            <figcaption id="img-caption" class="center-text">Every film actor who has portrayed James Bond</figcaption>
+        </figure>
+
+        <section id="tribute-info">
+            <article id="actors-data-list">
+                <h2>James Bond Actors</h2>
+  
+                <dl>
+                    <dt>Sean Connery</dt>
+                    <dd>Sean Connery was the first actor to perform the role on the big screen. He appeared in Dr. No (1962), From Russia with Love (1963), Goldfinger (1964), Thunderball (1965), You Only Live Twice (1967) and Diamonds Are Forever (1971). In 1983 he returned to the role for the last time in the unofficial James Bond film, Never Say Never Again. In addition he also provided his voice and likeness for 2005's video game adaptation of From Russia with Love.</dd>
+                    <dt>George Lazenby</dt>
+                    <dd>Australian actor and model George Lazenby briefly held the role from 1968 to 1969, appearing in 1969's On Her Majesty's Secret Service. Even though he had been offered a contract for seven movies, Lazenby felt dissatisfied with the role and left the series after the release of the film.</dd>
+                    <dt>Roger Moore</dt>
+                    <dd>Following the final departure of Sean Connery in 1971, English actor Roger Moore took over the role from 1973 to 1985. To date he is the longest-serving James Bond actor, spanning twelve years in the role. He is also the oldest actor to play Bond; having begun the role at 45 and retiring from it at the age of 58. He appeared in Live and Let Die (1973), The Man with the Golden Gun (1974), The Spy Who Loved Me (1977), Moonraker (1979), For Your Eyes Only (1981), Octopussy (1983) and A View to a Kill (1985). </dd>
+                    <dt>Timothy Dalton</dt>
+                    <dd>Welsh actor Timothy Dalton took over the role from Roger Moore in 1987. He appeared in The Living Daylights (1987) and Licence to Kill (1989). Legal issues between the Bond producers and the studio over distribution rights resulted in the cancellation of a proposed third Dalton film scheduled for release in 1991 and put the series on a hiatus for several years.</dd>
+                    <dt>Pierce Brosnan</dt>
+                    <dd>Irish actor Pierce Brosnan held the role from 1995 to 2004. He appeared in GoldenEye (1995), Tomorrow Never Dies (1997), The World Is Not Enough (1999) and Die Another Day (2002). In addition he also provided his likeness for six James Bond video games, starting with Rareware's 1997 blockbuster GoldenEye 007. Although he didn't voice the character until Everything or Nothing, his last appearance as 007, several actors have lent their voices to Brosnan's Bond, including Adam Blackwood in Tomorrow Never Dies (1999), Timothy Bentinck in The World Is Not Enough (2000) and later Maxwell Caulfield in Nightfire (2002).</dd>
+                    <dt>Daniel Craig</dt>
+                    <dd>Daniel Craig is the sixth official actor to appear as James Bond and appears in Casino Royale (2006), Quantum of Solace (2008), Skyfall (2012), Spectre (2015) and Bond 25 (2019). In addition he also provided his voice and likeness for several James Bond video games including Quantum of Solace (2008), the 2010 remake of GoldenEye 007, Blood Stone (2010), and 007 Legends (2012), in which Craig's Bond was voiced by British actor Timothy Watson.</dd>
+                </dl>
+            </article>
+        </section>
+
+        <section id="more-info">
+            <h2>Read more at <a id="tribute-link" href="https://jamesbond.fandom.com/wiki/James_Bond_Wiki" target="_blank">Fandom</a> or <a href="https://en.wikipedia.org/wiki/James_Bond" target="_blank">Wikipedia</a>.</h2>
+        </section>
+    </main>
+
+    <aside id="side-bar">
+        <figure id="quote">
+            <blockquote cite="https://www.goodreads.com/author/quotes/2565.Ian_Fleming">
+                <p>Never say 'no' to adventures. Always say 'yes,' otherwise you'll lead a very dull life.</p>
+            </blockquote>
+            <figcaption>— Ian Fleming</figcaption>
+        </figure>
+    </aside>
+
+    <aside id="ad" class="clear-anchor-style">
+        <a href="https://www.amazon.com/James-Collection-Blu-ray-Timothy-Dalton/dp/B01IQJ3LOI/" target="_blank">
+            <figure>
+                <img src="https://m.media-amazon.com/images/I/41sVmwOmX1L._SX342_.jpg" alt="Blu-ray collection of all James Bond films">
+                <figcaption>Click To Buy James Bond Film Collection</figcaption>
+            </figure>
+        </a>
+    </aside>
+
+    <footer>
+        <p class="center-text">
+            <small>Source Code © <time id="copyright-year">2022</time> Todd Brentlinger, Santa Cruz, CA, USA. All Rights Reserved.</small>
+        </p>
+    </footer>
+
+    <script>
+        (function(initialYear) {
+            const copyright = document.getElementById('copyright-year');
+            if (copyright) {
+                const currYear = new Date().getFullYear();
+                if (currYear > initialYear) {
+                    copyright.textContent = `${initialYear}-${currYear}`;
+                } else {
+                    copyright.textContent = initialYear;   
+                }
+            }
+        })(2022);
+    </script>
+</body>
+</html>
