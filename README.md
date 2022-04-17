@@ -6,11 +6,17 @@ Projects from FreeCodeCamp to obtain different certifications.
 
 ## Projects
 
+### Survey Form
+
+Responsive Web Design
+
+[Survey Form](https://toddbrentlinger.github.io/free-code-camp-projects/survey-form/)
+
 ### Build A Tribute Page
 
 Responsive Web Design
 
-[James Bond Tribute Page](tribute-page/)
+[James Bond Tribute Page](https://toddbrentlinger.github.io/free-code-camp-projects/tribute-page/)
 
 ## Certifications
 
