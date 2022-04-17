@@ -1,12 +1,25 @@
 :root {
     /* Variables */
-    --primary-bg-color: hsl(0, 0%, 90%);
-    --primary-font-color: hsl(0, 0%, 10%);
+    --primary-color: hsla(171, 47%, 52%, 0.8);
+    --secondary-color: hsla(13, 97%, 55%, 0.8);
+    --tertiary-color: hsla(40, 92%, 58%, 0.8);
+    --quaternary-color: hsl(266, 11%, 88%);
+
+    --base-white-color: hsl(0, 0%, 100%);
+    --base-black-color: hsl(0, 0%, 10%);
 }
 
 html {
     font-size: 62.5%; /* 1rem = 10px */
     box-sizing: border-box;
+    color: var(--base-white-color);
+    /* Background */
+    background-color: var(--primary-color);
+    background-image: linear-gradient( 115deg, var(--primary-color), var(--primary-color) ), url('../img/piqsels.com-id-zkejn-640x360.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 *, *::before, *::after {
@@ -15,9 +28,92 @@ html {
 
 body {
     font-size: 1.6rem; /* 16px */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main > * {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em auto;
+    background: var(--tertiary-color);
+    color: var(--primary-white-color);
+    padding: 1em;
+}
+
+form input:focus-visible {
+    border: 2px solid var(--secondary-color);
+}
+
+.form-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.form-input-container > div > * {
+    display: block;
+    width: 100%;
+}
+
+.form-input-container > * > label {
+    margin-bottom: 0.2em;
+}
+
+.form-checkbox-container, 
+.form-radio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+}
+
+@media only screen and (max-width: 960px) {
+    .form-checkbox-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .form-checkbox-container, .form-radio-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+fieldset {
+    border: 2px solid var(--secondary-color);
+}
+
+.form-button-container {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.form-button-container button {
+    flex: 1;
+    padding: 1em;
+    background-color: var(--secondary-color);
+    color: var(--primary-white-color);
+    cursor: pointer;
 }
 
 footer {
@@ -26,3 +122,151 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+textarea {
+    max-width: 100%;
+}
+
+.center-text {
+    text-align: center;
+}
+
+input, select, textarea {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5em;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Custom Radio */
+
+label.custom-radio {
+    display: block;
+    cursor: pointer;
+    border-radius: 100vh;
+    overflow: hidden;
+}
+
+label.custom-radio input {
+    display: none;
+}
+
+label.custom-radio input:checked+span,
+label.custom-radio span:hover {
+    background-color: var(--quaternary-color);
+    color: var(--secondary-color);
+}
+
+label.custom-radio input:checked+span:before {
+    box-shadow: inset 0 0 0 0.4375em var(--secondary-color);
+}
+
+label.custom-radio span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+}
+
+label.custom-radio span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: var(--base-white-color);
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em var(--secondary-color);
+}
+
+/* Custom Checkbox */
+
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-checkbox:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custom-checkbox input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.custom-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.custom-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* Media Queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    html {
+        background-image: linear-gradient( 115deg, var(--secondary-color), var(--secondary-color) ), url('../img/piqsels.com-id-zkejn-1280x720.jpg');
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
