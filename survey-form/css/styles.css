@@ -9,6 +9,8 @@
     --base-black-color: hsl(0, 0%, 10%);
 
     --form-input-transition-duration: 250ms;
+    --rounded-border-radius: 0.5rem;
+    --form-input-square-box-size: 1.5em;
 }
 
 html {
@@ -16,7 +18,7 @@ html {
     box-sizing: border-box;
     color: var(--base-white-color);
     /* Background */
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     background-image: linear-gradient( 115deg, var(--secondary-color), var(--secondary-color) ), url('../img/piqsels.com-id-zkejn-640x360.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -51,6 +53,10 @@ main > * {
     margin: 0 auto;
 }
 
+#description {
+    font-style: italic;
+}
+
 form {
     display: flex;
     flex-direction: column;
@@ -59,10 +65,6 @@ form {
     background: var(--tertiary-color);
     color: var(--primary-white-color);
     padding: 1em;
-}
-
-form input:focus-visible {
-    border: 2px solid var(--secondary-color);
 }
 
 .form-input-container {
@@ -85,7 +87,10 @@ form input:focus-visible {
 .form-radio-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
+    align-items: center;
+    column-gap: 1em;
+    row-gap: 0.5em;
+    border-radius: var(--rounded-border-radius);
 }
 
 @media only screen and (max-width: 960px) {
@@ -98,10 +103,6 @@ form input:focus-visible {
     .form-checkbox-container, .form-radio-container {
         grid-template-columns: repeat(1, 1fr);
     }
-}
-
-fieldset {
-    border: 2px solid var(--secondary-color);
 }
 
 .form-button-container {
@@ -143,9 +144,18 @@ textarea {
     text-align: center;
 }
 
+/* Remove outline when focused */
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--secondary-color);
+}
+
+fieldset {
+    border: 2px solid var(--secondary-color);
+}
+
 input, select, textarea {
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--rounded-border-radius);
     padding: 0.5em;
     -webkit-appearance: none;
     appearance: none;
@@ -185,8 +195,8 @@ label.custom-radio span:before {
     flex-shrink: 0;
     content: "";
     background-color: var(--base-white-color);
-    width: 1.5em;
-    height: 1.5em;
+    width: var(--form-input-square-box-size);
+    height: var(--form-input-square-box-size);
     border-radius: 50%;
     margin-right: 0.375em;
     transition: all var(--form-input-transition-duration) ease;
@@ -196,9 +206,8 @@ label.custom-radio span:before {
 /* Custom Checkbox */
 
 .custom-checkbox {
-    display: block;
     position: relative;
-    padding-left: 1.875em; /* Checkbox width + 0.375em padding */
+    height: var(--form-input-square-box-size);
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -215,20 +224,34 @@ label.custom-radio span:before {
     width: 0;
 }
 
+.custom-checkbox input~.custom-checkbox-content {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 100vh;
+}
+
+.custom-checkbox input:checked~.custom-checkbox-content,
+.custom-checkbox input:hover~.custom-checkbox-content {
+    background-color: var(--quaternary-color);
+    color: var(--secondary-color);
+}
+
 /* Create a custom checkbox */
-.custom-checkbox input~.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1.5em;
-    width: 1.5em;
+.custom-checkbox input~.custom-checkbox-content .checkmark {
+    position: relative;
+    display: inline-block;
+    height: var(--form-input-square-box-size);
+    width: var(--form-input-square-box-size);
     background-color: var(--secondary-color);
     box-shadow: inset 0 0 0 0.125em var(--secondary-color);
     transition: all var(--form-input-transition-duration) ease;
     border-radius: 100vh;
+    margin-right: 0.375em;
 }
 
-.custom-checkbox input~.checkmark::before {
+/* Style actual checkmark */
+.custom-checkbox input~.custom-checkbox-content .checkmark::before {
     content: "";
     display: block;
     position: absolute;
@@ -245,7 +268,8 @@ label.custom-radio span:before {
     transform: rotate(45deg) scale(0);
 }
 
-.custom-checkbox input:checked~.checkmark::before {
+/* Style actual checkmark when input is checked */
+.custom-checkbox input:checked~.custom-checkbox-content .checkmark::before {
     /* Animation */
     animation-name: scale-in-45deg;
     animation-duration: var(--form-input-transition-duration);
@@ -253,7 +277,8 @@ label.custom-radio span:before {
     animation-fill-mode: forwards;
 }
 
-.custom-checkbox input~.checkmark::after {
+/* Style checkmark background */
+.custom-checkbox input~.custom-checkbox-content .checkmark::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -264,36 +289,12 @@ label.custom-radio span:before {
     border-radius: 100vh;
 }
 
-.custom-checkbox input:checked~.checkmark::after {
+/* Style checkmark background when input is checked */
+.custom-checkbox input:checked~.custom-checkbox-content .checkmark::after {
     -webkit-transform: rotate(45deg) scale(0);
     -ms-transform: rotate(45deg) scale(0);
     transform: rotate(45deg) scale(0);
 }
-
-/* Style the checkmark/indicator */
-/* .custom-checkbox .checkmark:after {
-    content: "";
-    position: absolute;
-    transform: scale(0);
-    background-color: white;
-    border: 0.125em solid var(--secondary-color);
-    transition: transform 0.25s ease;
-} */
-
-/* Show the checkmark when checked */
-/* .custom-checkbox input:checked~.checkmark:after {
-    display: block;
-    left: 9px;
-    top: 4px;
-    width: 6px;
-    height: 14px;
-    background-color: initial;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-} */
 
 @keyframes scale-in-45deg {
     from {
