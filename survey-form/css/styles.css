@@ -7,6 +7,8 @@
 
     --base-white-color: hsl(0, 0%, 100%);
     --base-black-color: hsl(0, 0%, 10%);
+
+    --form-input-transition-duration: 250ms;
 }
 
 html {
@@ -15,7 +17,7 @@ html {
     color: var(--base-white-color);
     /* Background */
     background-color: var(--primary-color);
-    background-image: linear-gradient( 115deg, var(--primary-color), var(--primary-color) ), url('../img/piqsels.com-id-zkejn-640x360.jpg');
+    background-image: linear-gradient( 115deg, var(--secondary-color), var(--secondary-color) ), url('../img/piqsels.com-id-zkejn-640x360.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -110,10 +112,20 @@ fieldset {
 
 .form-button-container button {
     flex: 1;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
     padding: 1em;
-    background-color: var(--secondary-color);
-    color: var(--primary-white-color);
+    background-color: var(--quaternary-color);
+    border: 0.125em solid var(--secondary-color);
+    color: var(--secondary-color);
     cursor: pointer;
+}
+
+.form-button-container button:hover,
+.form-button-container button:active {
+    background-color: var(--secondary-color);
+    color: var(--quaternary-color);
 }
 
 footer {
@@ -177,7 +189,7 @@ label.custom-radio span:before {
     height: 1.5em;
     border-radius: 50%;
     margin-right: 0.375em;
-    transition: all 0.25s ease;
+    transition: all var(--form-input-transition-duration) ease;
     box-shadow: inset 0 0 0 0.125em var(--secondary-color);
 }
 
@@ -186,10 +198,8 @@ label.custom-radio span:before {
 .custom-checkbox {
     display: block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding-left: 1.875em; /* Checkbox width + 0.375em padding */
     cursor: pointer;
-    font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -206,48 +216,96 @@ label.custom-radio span:before {
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.custom-checkbox input~.checkmark {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
+    height: 1.5em;
+    width: 1.5em;
+    background-color: var(--secondary-color);
+    box-shadow: inset 0 0 0 0.125em var(--secondary-color);
+    transition: all var(--form-input-transition-duration) ease;
+    border-radius: 100vh;
 }
 
-/* On mouse-over, add a grey background color */
-.custom-checkbox:hover input~.checkmark {
-    background-color: #ccc;
+.custom-checkbox input~.checkmark::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 8px;
+    top: 2px;
+    width: 9px;
+    height: 17px;
+    background-color: initial;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    border-radius: 45% 0% / 10%;
+    -webkit-transform: rotate(45deg) scale(0);
+    -ms-transform: rotate(45deg) scale(0);
+    transform: rotate(45deg) scale(0);
 }
 
-/* When the checkbox is checked, add a blue background */
-.custom-checkbox input:checked~.checkmark {
-    background-color: #2196F3;
+.custom-checkbox input:checked~.checkmark::before {
+    /* Animation */
+    animation-name: scale-in-45deg;
+    animation-duration: var(--form-input-transition-duration);
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.custom-checkbox input~.checkmark::after {
     content: "";
     position: absolute;
-    display: none;
+    width: 100%;
+    height: 100%;
+    background: var(--base-white-color);
+    box-shadow: inset 0 0 0 0.125em var(--secondary-color);
+    transition: transform var(--form-input-transition-duration);
+    border-radius: 100vh;
 }
 
-/* Show the checkmark when checked */
-.custom-checkbox input:checked~.checkmark:after {
-    display: block;
+.custom-checkbox input:checked~.checkmark::after {
+    -webkit-transform: rotate(45deg) scale(0);
+    -ms-transform: rotate(45deg) scale(0);
+    transform: rotate(45deg) scale(0);
 }
 
 /* Style the checkmark/indicator */
-.custom-checkbox .checkmark:after {
+/* .custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    transform: scale(0);
+    background-color: white;
+    border: 0.125em solid var(--secondary-color);
+    transition: transform 0.25s ease;
+} */
+
+/* Show the checkmark when checked */
+/* .custom-checkbox input:checked~.checkmark:after {
+    display: block;
     left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    top: 4px;
+    width: 6px;
+    height: 14px;
+    background-color: initial;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+} */
+
+@keyframes scale-in-45deg {
+    from {
+        -webkit-transform: rotate(45deg) scale(0);
+        -ms-transform: rotate(45deg) scale(0);
+        transform: rotate(45deg) scale(0);
+    }
+    to {
+        -webkit-transform: rotate(45deg) scale(1);
+        -ms-transform: rotate(45deg) scale(1);
+        transform: rotate(45deg) scale(1);
+    }
 }
 
 /* Media Queries */
