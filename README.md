@@ -4,23 +4,17 @@
 
 Projects from FreeCodeCamp to obtain different certifications.
 
-## Projects
+## Responsive Web Design
 
-### Survey Form
-
-Responsive Web Design
+[Product Landing Page](https://toddbrentlinger.github.io/free-code-camp-projects/product-landing-page/)
 
 [Survey Form](https://toddbrentlinger.github.io/free-code-camp-projects/survey-form/)
 
-### Build A Tribute Page
+[Tribute Page](https://toddbrentlinger.github.io/free-code-camp-projects/tribute-page/)
 
-Responsive Web Design
+## JavaScript Algorithms and Data Structures
 
-[James Bond Tribute Page](https://toddbrentlinger.github.io/free-code-camp-projects/tribute-page/)
-
-## Certifications
-
-* [JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/certification/toddbrentlinger/javascript-algorithms-and-data-structures)
+[Certification: JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/certification/toddbrentlinger/javascript-algorithms-and-data-structures)
 
 ## Helpful Links
 
