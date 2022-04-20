@@ -7,13 +7,26 @@
     <title>Product Landing Page</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="./js/main.js"></script>
+
     <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#ff5031">
+    <link rel="shortcut icon" href="./favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="./favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ff5031">
 
     <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="animated-background">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+
         <div class="animated-bg-item"
             style="left: 68%; width: 19%; animation-delay: 0s; animation-duration: 15s; opacity: 0.952185;">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 60 60">
@@ -95,22 +108,35 @@
             </svg>
         </div>
     </div>
-    <header id="header">
-        <img id="header-img" src="" alt="">
 
-        <nav id="top-nav-bar">
-            <a class="nav-link" href="#">Link 1</a>
-            <a class="nav-link" href="#">Link 2</a>
-            <a class="nav-link" href="#">Link 3</a>
-            <a class="hamburger-icon" href=""><i class="fa fa-bars"></i></a>
+    <header id="header">
+        <nav id="nav-bar">
+            <span id="nav-bar-logo">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 176 176" style="background-color:rgb(255,80,49)">
+                    <polygon points="33,75 45,63 86,104 74,116" style="fill:white" />
+                    <rect x="33" y="98" width="53" height="18" style="fill:white" />
+                    <rect x="68" y="63" width="18" height="53" style="fill:white" />
+                
+                    <polygon points="100,116 90,104 131,63 143,75" style="fill:white" />
+                    <rect x="90" y="64" width="53" height="18" style="fill:white" />
+                    <rect x="125" y="64" width="18" height="53" style="fill:white" />
+                </svg>
+            </span>
+            <div id="nav-bar-links">
+                <a class="nav-link" href="#benefits-description">Benefits</a>
+                <a class="nav-link" href="#testimonials">Testimonials</a>
+                <a class="nav-link" href="#call-to-action">Call To Action</a>
+            </div>
+            <div id="hamburger-icon"><i class="fa fa-bars"></i></div>
         </nav>
     </header>
 
     <main>
-        <h1>Bold, problem-focused headline</h1>
+        <h1 class="center-text">A PLACE FOR GAMES, FRIENDS, AND GETTING BETTER.</h1>
 
-        <section id="video">
-            <iframe 
+        <section id="video-container">
+            <iframe
+                id="video" 
                 width="560" height="315" 
                 src="https://www.youtube.com/embed/-dlSmDb8gBs" 
                 title="YouTube video player" 
@@ -118,6 +144,10 @@
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
+        </section>
+
+        <section>
+            <p>MinnMax creates videos/podcasts focused on games, friends, and getting better. Thanks to your support on Patreon, Ben Hanson, Kyle Hilliard, Jeff Marchiafava, Janet Garcia, Leo Vader, and Sarah Podzorski and more have created a whole network of shows!</p>
         </section>
 
         <section id="img-gallery">
@@ -140,9 +170,9 @@
             A strong call to action and pricing information
         </section>
 
-        <form id="form">
+        <form action="https://www.freecodecamp.org/email-submit" method="post" id="form">
             <label for="email">
-                <input type="email" name="email" id="email" placeholder="Enter email address">
+                <input type="email" name="email" id="email" placeholder="Enter email address" required>
                 <span>Enter email address</span>
             </label>
             <section>
@@ -154,7 +184,7 @@
         </form>
     </main>
 
-    <footer>
+    <footer class="center-text">
         <p>
             <small>Source Code © <time id="copyright-year">2022</time> Todd Brentlinger, Santa Cruz, CA, USA. All Rights Reserved.</small>
         </p>

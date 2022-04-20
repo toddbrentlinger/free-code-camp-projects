@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 :root {
     /* Variables */
     --base-white-color: hsl(0, 0%, 85%);
     --base-black-color: hsl(0, 0%, 15%);
 
-    --primary-color: hsl(9, 100%, 60%);
-    --primary-color-lighter: hsl(9, 100%, 70%);
-    --primary-color-darker: hsl(9, 100%, 50%);
+    --primary-color: rgb(255, 80, 47);
+    --primary-color-light: rgb(255, 113, 87);
+    --primary-color-lighter: rgb(255, 149, 129);
+    --primary-color-dark: rgb(229, 41, 6);
+    --primary-color-darker: rgb(177, 27, 0);
+
+    --secondary-color: rgb(29, 54, 88);
+    --secondary-color-darker: rgb(17, 30, 50);
 }
 
 html {
@@ -21,35 +28,128 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--base-black-color);
-    background-color: var(--base-white-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--base-white-color);
+    background-color: var(--secondary-color-darker);
     min-height: 100vh;
     /* TEMP LAYOUT */
     display: flex;
     flex-direction: column;
+}
+
+/* Remove default styling for links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    position: relative;
+    margin-top: 3em;
+    height: 20vh;
+    background-color: var(--secondary-color);
+    background-image: url("../img/MinnMaxBanner_469x259.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header .img-container {
+    height: 20vh;
+    overflow: hidden;
+}
+
+#header-img {
+    width: 100%;
+}
+
+#nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    background-color: var(--secondary-color);
+    z-index: 1;
+}
+
+#nav-bar-links {
+    display: flex;
+}
+
+#nav-bar-links a {
+    text-decoration: none;
+    padding: 0 1em;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-#top-nav-bar {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
+#nav-bar-links a:hover,
+#nav-bar-links a:active {
+    background-color: var(--primary-color);
+    color: var(--base-white-color);
 }
 
-#top-nav-bar a {
-    text-decoration: none;
-    padding: 1em;
-    border: 2px solid var(--primary-color);
+#nav-bar-logo {
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0.3em;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
-#top-nav-bar .hamburger-icon {
-    display: none;
+#hamburger-icon {
+    /* display: none; */
+    justify-self: flex-start;
+}
+
+#hamburger-icon .fa {
+    display: block;
+    padding: 0.3em;
+}
+
+#hamburger-icon .fa::before {
+    color: var(--base-white-color);
 }
 
 main {
     flex: 1;
+}
+
+main > * {
+    margin: 1em auto;
+}
+
+#video-container {
+    position: relative;
+    padding-top: 56.25%;
+    max-width: 1000px;
+}
+
+#video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#benefits-description {
+    display: flex;
+}
+
+#benefits-description > * {
+    flex: 1;
+    padding: 1em;
+    border: 2px solid var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 footer {
@@ -57,17 +157,69 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 1em;
-    text-align: center;
 }
 
 /* Animated Background */
 .animated-background {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     border: 2px solid black;
     z-index: -1;
     overflow: hidden;
+}
+
+.animated-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 80, 0.4), rgba(0, 0, 80, 0.6));
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.stars {
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: -3;
+}
+
+.twinkling {
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: -2;
+    /* Animation */
+    -moz-animation: move-twink-back 500s linear infinite;
+    -ms-animation: move-twink-back 500s linear infinite;
+    -o-animation: move-twink-back 500s linear infinite;
+    -webkit-animation: move-twink-back 500s linear infinite;
+    animation: move-twink-back 500s linear infinite;
 }
 
 .animated-bg-item {
@@ -76,21 +228,7 @@ footer {
     left: 40%;
     width: 20%;
     animation: animate-background-animation 25s linear infinite;
-}
-/*
-.animated-bg-item:nth-child(n) {
-    left: 0%; -> between 0% and (100%-width)
-    width: 20%; -> between 10% and 30%
-    animation-delay: 0s; -> between 0s and 15s 
-    animation-duration: 25s; -> between 10s and 45s
-}
-*/
-
-.animated-bg-item:nth-child(1) {
-    left: 50%;
-    width: 20%;
-    animation-delay: 2s;
-    animation-duration: 12s;
+    /* background: url("../img/MinnMax_logo_single.svg"); */
 }
 
 @keyframes animate-background-animation {
@@ -101,3 +239,34 @@ footer {
         transform: translateY(-200vh) rotate(720deg);
     }
 }
+
+/* Misc */
+
+.center-text {
+    text-align: center;
+}
+
+/* Typical Device Breakpoints */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    header {
+        background-image: url("../img/MinnMaxBanner_938x518.jpg");
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    header {
+        background-image: url("../img/MinnMaxBanner_1876x1036.jpg");
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
