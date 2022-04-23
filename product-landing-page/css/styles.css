@@ -11,8 +11,10 @@
     --primary-color-dark: rgb(229, 41, 6);
     --primary-color-darker: rgb(177, 27, 0);
 
-    --secondary-color: rgb(29, 54, 88);
+    --secondary-color: rgba(29, 54, 88, 0.9);
     --secondary-color-darker: rgb(17, 30, 50);
+
+    --nav-bar-left-right-margin: 1rem;
 }
 
 html {
@@ -32,9 +34,6 @@ body {
     color: var(--base-white-color);
     background-color: var(--secondary-color-darker);
     min-height: 100vh;
-    /* TEMP LAYOUT */
-    display: flex;
-    flex-direction: column;
 }
 
 /* Remove default styling for links */
@@ -45,22 +44,29 @@ a {
 
 header {
     position: relative;
-    margin-top: 3em;
-    height: 20vh;
-    background-color: var(--secondary-color);
-    background-image: url("../img/MinnMaxBanner_469x259.jpg");
-    background-position: center center;
+    margin-top: -1em; /* shifts background image up */
+    background-color: transparent;
+    /* background-image: url("../img/MinnMaxBanner_469x259_alpha.png"); */
+    background-position: center 55%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-header .img-container {
-    height: 20vh;
-    overflow: hidden;
-}
-
 #header-img {
     width: 100%;
+}
+
+h1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 0.5em var(--base-black-color);
+    font-size: 6vw;
 }
 
 #nav-bar {
@@ -75,16 +81,20 @@ header .img-container {
     gap: 1em;
     background-color: var(--secondary-color);
     z-index: 1;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 #nav-bar-links {
+    flex: 1;
     display: flex;
+    justify-content: space-evenly;
 }
 
 #nav-bar-links a {
     text-decoration: none;
     padding: 0 1em;
-    border: 2px solid var(--primary-color);
+    border-left: 2px solid var(--primary-color);
+    border-right: 2px solid var(--primary-color);
     color: var(--primary-color);
     display: flex;
     justify-content: center;
@@ -100,46 +110,119 @@ header .img-container {
 #nav-bar-logo {
     border-radius: 50%;
     overflow: hidden;
-    margin: 0.3em;
+    margin: 0.5em var(--nav-bar-left-right-margin);
+    cursor: pointer;
+    transition: transform 300ms linear;
+}
+
+#nav-bar-logo:hover {
+    transform: rotate(180deg);
 }
 
 /* Hide the link that should open and close the topnav on small screens */
 #hamburger-icon {
     /* display: none; */
     justify-self: flex-start;
+    cursor: pointer;
+    margin: 0 var(--nav-bar-left-right-margin);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #hamburger-icon .fa {
     display: block;
-    padding: 0.3em;
 }
 
 #hamburger-icon .fa::before {
     color: var(--base-white-color);
 }
 
+/* Main */
+
 main {
     flex: 1;
 }
 
-main > * {
+main > article {
     margin: 1em auto;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }
 
-#video-container {
-    position: relative;
-    padding-top: 56.25%;
+/* Video Section */
+
+#video-section {
     max-width: 1000px;
 }
 
-#video-container iframe {
+.video-container {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
+
+/* Patreon Section */
+
+#patreon-container {
+    text-align: center;
+}
+
+#patreon-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1em;
+    margin: 0 1em;
+}
+
+#patreon-tiers > li {
+    border: 3px solid var(--primary-color);
+    border-radius: 1em;
+    padding: 1em;
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-rows: 1fr 1fr 3fr 1fr;
+}
+
+#patreon-tiers .patreon-tier-includes-discord-benefits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#patreon-tiers .patreon-tier-includes-discord-benefits .discord-logo {
+    width: 2em;
+    margin-right: 0.5em;
+} 
+
+/* Twitter Section */
+
+#twitter-section {
+    width: 50%;
+    min-width: 300px;
+}
+
+.twitter-container {
+    position: relative;
+    width: 100%;
+    padding-top: 120%;
+}
+
+.twitter-container > iframe {
+    position: absolute !important; /* important to overwrite auto-inline styling */
+    top: 0;
+    left: 0;
+}
+
+/* Benefits Description */
 
 #benefits-description {
     display: flex;
@@ -152,6 +235,8 @@ main > * {
     background-color: var(--secondary-color);
 }
 
+/* Footer */
+
 footer {
     display: flex;
     justify-content: center;
@@ -160,6 +245,7 @@ footer {
 }
 
 /* Animated Background */
+
 .animated-background {
     position: fixed;
     top: 0;
@@ -254,19 +340,20 @@ footer {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     header {
-        background-image: url("../img/MinnMaxBanner_938x518.jpg");
+        /* background-image: url("../img/MinnMaxBanner_938x518_alpha.png"); */
+        margin-top: -3em;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
     header {
-        background-image: url("../img/MinnMaxBanner_1876x1036.jpg");
+        margin-top: -5em;
     }
 }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}

@@ -110,8 +110,24 @@
     </div>
 
     <header id="header">
+        <div id="header-img-container">
+            <img 
+                srcset="./img/MinnMaxBanner_469x259_alpha.png 469w,
+                        ./img/MinnMaxBanner_938x518_alpha.png 938w,
+                        ./img/MinnMaxBanner_1876x1036_alpha.png 1876w"
+                sizes="(max-width: 600px) 469w,
+                       (max-width: 992px 938w,
+                       1876w"
+                src="./img/MinnMaxBanner_938x518_alpha.png" 
+                alt="MinnMax banner" 
+                id="header-img"
+            >
+        </div>
+
+        <h1 class="center-text">A PLACE FOR GAMES, FRIENDS, AND GETTING BETTER.</h1>
+
         <nav id="nav-bar">
-            <span id="nav-bar-logo">
+            <a href="#" id="nav-bar-logo">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 176 176" style="background-color:rgb(255,80,49)">
                     <polygon points="33,75 45,63 86,104 74,116" style="fill:white" />
                     <rect x="33" y="98" width="53" height="18" style="fill:white" />
@@ -121,54 +137,226 @@
                     <rect x="90" y="64" width="53" height="18" style="fill:white" />
                     <rect x="125" y="64" width="18" height="53" style="fill:white" />
                 </svg>
-            </span>
+            </a>
             <div id="nav-bar-links">
                 <a class="nav-link" href="#benefits-description">Benefits</a>
                 <a class="nav-link" href="#testimonials">Testimonials</a>
                 <a class="nav-link" href="#call-to-action">Call To Action</a>
             </div>
-            <div id="hamburger-icon"><i class="fa fa-bars"></i></div>
+            <div id="hamburger-icon"><i class="fa fa-bars fa-2x"></i></div>
         </nav>
     </header>
 
     <main>
-        <h1 class="center-text">A PLACE FOR GAMES, FRIENDS, AND GETTING BETTER.</h1>
+        <article id="video-section">
+            <div class="video-container">
+                <!--width="560" height="315"-->
+                <iframe
+                    id="video"
+                    src="https://www.youtube.com/embed/-dlSmDb8gBs"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </article>
 
-        <section id="video-container">
-            <iframe
-                id="video" 
-                width="560" height="315" 
-                src="https://www.youtube.com/embed/-dlSmDb8gBs" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-        </section>
-
-        <section>
+        <article>
             <p>MinnMax creates videos/podcasts focused on games, friends, and getting better. Thanks to your support on Patreon, Ben Hanson, Kyle Hilliard, Jeff Marchiafava, Janet Garcia, Leo Vader, and Sarah Podzorski and more have created a whole network of shows!</p>
-        </section>
+        </article>
 
-        <section id="img-gallery">
+        <article id="img-gallery">
             <img src="" alt="">
             <img src="" alt="">
             <img src="" alt="">
-        </section>
+        </article>
 
-        <section id="benefits-description">
+        <article id="patreon-container">
+            <a href="https://www.patreon.com/minnmax" target="_blank">Click to support us on Patreon</a>
+            <ul id="patreon-tiers">
+                <li>
+                    <div class="patreon-tier-title">Make The Shows Better</div>
+                    <div class="patreon-tier-price">$2 per month</div>
+                    <p class="patreon-tier-description">
+                        Make the shows better by submitting questions/comments for The MinnMax Show, CrossFade, and The Deepest Dive. You can compete in Trivia Tower every month for prizes and you also unlock access to our exclusive Discord.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Exclusive Podcast Feed</div>
+                    <div class="patreon-tier-price">$5 per month</div>
+                    <p class="patreon-tier-description">
+                        You'll unlock the podcast version of The Deepest Dive, Max Spoilers, MinnMax Interviews, commentary tracks, and more. You also get early access to The MinnMax Show and can listen to our exclusive show Party Chat. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Backstage Pass</div>
+                    <div class="patreon-tier-price">$10 per month</div>
+                    <p class="patreon-tier-description">
+                        Watch us record our shows live (including pre and post show discussions) from an exclusive Discord channel. You can also vote in a poll to decide what we stream every Tuesday with New Show Plus. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Join The MinnMax Council</div>
+                    <div class="patreon-tier-price">$20 per month</div>
+                    <p class="patreon-tier-description">
+                        Every Monday you can participate in Party Chat by joining the Discord and talking to us directly or submitting a question in chat. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Game Champion</div>
+                    <div class="patreon-tier-price">$50 per month</div>
+                    <p class="patreon-tier-description">
+                        Pick any game under the sun and we'll herald you as the champion on The MinnMax Show podcast and list your name and game in the description of every show. We'll also tweet out your name and your game of choice. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Join The Wall Of Heroes</div>
+                    <div class="patreon-tier-price">$100 per month</div>
+                    <p class="patreon-tier-description">
+                        Your name/business/online handle and a picture of your choice appears in a rotating slideshow on every MinnMax video. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="patreon-tier-title">Play Games With Us</div>
+                    <div class="patreon-tier-price">$300 per month</div>
+                    <p class="patreon-tier-description">
+                        Every month you can choose a MinnMax Cohort and play an agreed upon online game for an hour, not streamed. You'll also be included in the Wall of Heroes slideshow during every video. You also get the benefits of every lower tier.
+                    </p>
+                    <div class="patreon-tier-includes-discord-benefits">
+                        <span class="discord-logo">
+                            <div stroke="discordBlurple" fill="discordBlurple" class="sc-iqseJM djdEZg">
+                                <svg viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M18.942 5.548a16.275 16.275 0 0 0-4.126-1.298c-.178.322-.386.754-.529 1.099a15.132 15.132 0 0 0-4.573 0A11.748 11.748 0 0 0 9.18 4.25a16.222 16.222 0 0 0-4.13 1.301c-2.611 3.95-3.319 7.803-2.965 11.601a16.488 16.488 0 0 0 5.06 2.596c.408-.561.771-1.158 1.084-1.787a10.655 10.655 0 0 1-1.706-.831c.143-.107.283-.217.418-.332 3.29 1.541 6.866 1.541 10.118 0 .137.115.277.226.418.332-.54.326-1.113.606-1.71.833.314.627.675 1.226 1.084 1.787a16.456 16.456 0 0 0 5.064-2.598c.415-4.402-.71-8.22-2.973-11.604zM8.678 14.817c-.988 0-1.798-.924-1.798-2.048s.792-2.05 1.798-2.05c1.005 0 1.815.924 1.798 2.05.001 1.124-.793 2.048-1.798 2.048zm6.644 0c-.988 0-1.798-.924-1.798-2.048s.793-2.05 1.798-2.05c1.006 0 1.816.924 1.798 2.05 0 1.124-.793 2.048-1.798 2.048z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </span>
+                        <p>Includes Discord benefits</p>
+                    </div>
+                </li>
+            </ul>
+        </article>
+
+        <article id="twitter-section">
+            <div class="twitter-container">
+                <a class="twitter-timeline" data-width="100%" data-height="100%" data-theme="dark"
+                    href="https://twitter.com/MinnMaxShow?ref_src=twsrc%5Etfw">Tweets by MinnMaxShow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <!-- <a class="twitter-timeline" data-width="300" data-height="437" data-theme="dark"
+                    href="https://twitter.com/MinnMaxShow?ref_src=twsrc%5Etfw">Tweets by MinnMaxShow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+                <!-- <a class="twitter-timeline" data-width="500" data-height="541" data-theme="dark"
+                    href="https://twitter.com/MinnMaxShow?ref_src=twsrc%5Etfw">Tweets by MinnMaxShow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-width="700" data-height="739" data-theme="dark"
+                    href="https://twitter.com/MinnMaxShow?ref_src=twsrc%5Etfw">Tweets by MinnMaxShow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="twitter-timeline" data-width="900" data-height="740" data-theme="dark"
+                    href="https://twitter.com/MinnMaxShow?ref_src=twsrc%5Etfw">Tweets by MinnMaxShow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+            </div>
+        </article>
+
+        <article id="benefits-description">
             <p>Benefit A Description</p>
             <p>Benefit B Description</p>
             <p>Benefit C Description</p>
-        </section>
+        </article>
 
-        <section id="testimonials">
+        <article id="testimonials">
             Social proof, customer reviews, and testimonials
-        </section>
+        </article>
 
-        <section id="call-to-action">
+        <article id="call-to-action">
             A strong call to action and pricing information
-        </section>
+        </article>
 
         <form action="https://www.freecodecamp.org/email-submit" method="post" id="form">
             <label for="email">
